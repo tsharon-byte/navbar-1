@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import { Button, Logo } from "../molecules";
 import { ABOUT, CONTACT_US, HOME } from "../../config";
@@ -46,7 +46,9 @@ const StyledLink = styled(NavLink)`
 
 export const NavBar = () => (
   <StyledNavbar>
-    <Logo>Logo</Logo>
+    <Logo>
+        LOGO
+      </Logo>
     <NavBarItems>
       <StyledLink to={HOME} activeStyle exact>
         Home

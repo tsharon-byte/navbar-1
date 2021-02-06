@@ -1,2 +1,3 @@
 import React from "react";
-export const Home = () => <div>Home</div>;
+import { FaBars} from "react-icons/fa"
+export const Home = () => <div>Home<FaBars/></div>;
