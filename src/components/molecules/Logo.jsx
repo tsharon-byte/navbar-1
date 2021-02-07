@@ -9,6 +9,9 @@ const StyledLogo = styled.div`
   font-weight: 500;
   font-size: 24px;
   line-height: 35px;
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled(NavLink)`

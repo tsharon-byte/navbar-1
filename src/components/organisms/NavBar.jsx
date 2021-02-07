@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-import { Button, Logo } from "../molecules";
+import { Button, Logo, Hamburger } from "../molecules";
 import { ABOUT, CONTACT_US, HOME } from "../../config";
 
 const StyledNavbar = styled.div`
@@ -12,7 +12,7 @@ const StyledNavbar = styled.div`
   padding: 10px;
   height: 50px;
   background: silver;
-  align-items: baseline;
+  align-items: center;
   font-size: 16px;
   @media (max-width: 768px) {
     font-size: 14px;
@@ -30,6 +30,9 @@ const NavBarItems = styled.div`
   @media (max-width: 768px) {
     width: 50vw;
   }
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
 const StyledLink = styled(NavLink)`
@@ -44,11 +47,14 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-export const NavBar = () => (
+export const NavBar = () => {
+  const [collapsed, setCollapsed] = useState(true);
+  return (
   <StyledNavbar>
     <Logo>
         LOGO
       </Logo>
+      <Hamburger onClick={()=>setCollapsed(!collapsed)} collapsed={collapsed}/>
     <NavBarItems>
       <StyledLink to={HOME} activeStyle exact>
         Home
@@ -63,3 +69,4 @@ export const NavBar = () => (
     <Button>SIGN IN</Button>
   </StyledNavbar>
 );
+}
