@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 import { Button, Logo, Hamburger } from "../molecules";
+import { MobileNavbar } from "../organisms";
 import { ABOUT, CONTACT_US, HOME } from "../../config";
 
 const StyledNavbar = styled.div`
@@ -50,23 +51,28 @@ const StyledLink = styled(NavLink)`
 export const NavBar = () => {
   const [collapsed, setCollapsed] = useState(true);
   return (
-  <StyledNavbar>
-    <Logo>
-        LOGO
-      </Logo>
-      <Hamburger onClick={()=>setCollapsed(!collapsed)} collapsed={collapsed}/>
-    <NavBarItems>
-      <StyledLink to={HOME} activeStyle exact>
-        Home
-      </StyledLink>
-      <StyledLink to={ABOUT} activeStyle>
-        About
-      </StyledLink>
-      <StyledLink to={CONTACT_US} activeStyle>
-        Contact us
-      </StyledLink>
-    </NavBarItems>
-    <Button>SIGN IN</Button>
-  </StyledNavbar>
-);
-}
+    <StyledNavbar>
+      <Logo>LOGO</Logo>
+      <Hamburger
+        onClick={() => setCollapsed(!collapsed)}
+        collapsed={collapsed}
+      />
+      <MobileNavbar
+        collapsed={collapsed}
+        onClick={() => setCollapsed(!collapsed)}
+      />
+      <NavBarItems>
+        <StyledLink to={HOME} activeStyle exact>
+          Home
+        </StyledLink>
+        <StyledLink to={ABOUT} activeStyle>
+          About
+        </StyledLink>
+        <StyledLink to={CONTACT_US} activeStyle>
+          Contact us
+        </StyledLink>
+      </NavBarItems>
+      <Button>SIGN IN</Button>
+    </StyledNavbar>
+  );
+};

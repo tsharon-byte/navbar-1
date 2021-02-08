@@ -3,4 +3,5 @@ export const theme = {
   color: "red",
   primary: "red",
   textPrimary: "white",
+  backgroundMobile: "#1A1A1A",
 };
